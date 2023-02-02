@@ -131,5 +131,6 @@ function getExamples(data){
 }
 
 audioIcon.addEventListener("click", () => {
+    audioTag.currentTime = 0;
     audioTag.play()
 })
