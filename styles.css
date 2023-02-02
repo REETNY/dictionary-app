@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-body{
+    width: 500px;
+    background: #eee;
+    padding: 40px 20px;
+    border-radius: 20px;
+}
+
+.app-header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+#form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+
+}
+
+#form input{
+    width: 50%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid purple;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+#form input::placeholder{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#form button{
+    width: 20%;
+    height: 40px;
+    outline: none;
+    background: rgb(182, 111, 182);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: whitesmoke;
+    transition: all .4s;
+}
+
+.errorMes{
+    width: 100%;
+    margin-top: 3px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    display: none;
+    color: red;
+}
+
+#form button:hover{
+    background: purple;
+    opacity: 0.7;
+}
+
+#form button:active{
+    transform: translateX(-5px);
+}
+
+.app-content{
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+}
+
+.searchedWord{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1px;
+}
+
+.word{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.audioIcon{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.phonetics{
+    width: fit-content;
+    padding: 3px 5px;
+    background-color: rgb(229, 186, 229);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.partOfSpeech{
+    width: fit-content;
+    border-bottom: 2px solid purple;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.partOfSpeech::first-letter{
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.meaning{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.examples{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding-left: 10px;
+}
+
+.ex-head{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ex{
+    border-left: 3px solid purple;
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+
+
+@media only screen and (max-width: 500px){
+    .app-body{
+        max-width: 95%;
+        padding: 20px 5px;
+    }
+}
