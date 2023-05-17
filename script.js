@@ -38,7 +38,6 @@ async function getDef(userWord){
         return;
     }
 
-    console.log(data)
     getAudio(data[0].phonetics)
     getWord(data[0].word);
     getPhonetic(data[0].phonetic);
@@ -48,7 +47,7 @@ async function getDef(userWord){
 
 
 function getAudio(data){
-    let audio;
+    let audio = "";
     data.forEach( item => {
         if(item.audio !== ""){
             audio = item.audio;
@@ -56,8 +55,10 @@ function getAudio(data){
         }
     })
 
-    if(audio == ""){
+    if(audio == undefined || audio === ""){
         audioIcon.style.color = `red`;
+        audioTag.src = ``;
+        
     }else{
         audioTag.src = `${audio}`;
         audioIcon.style.color = `plum`;
@@ -65,7 +66,11 @@ function getAudio(data){
 }
 
 function getPhonetic(data){
-    phonetics.innerText = `${data}`
+    if(data === "" || data === undefined){
+        phonetics.innerText = ""
+    }else{
+        phonetics.innerText = `${data}`
+    }
 }
 
 function getWord(data){
@@ -116,21 +121,30 @@ function getExamples(data){
         exmps.push(fixedSentence);
     })
 
-
-    examples.innerHTML = ``;
-    examples.innerHTML += `<div class="ex-head">Examples</div>`
-    let examp;
-    
-    exmps.forEach( (item) => {
-        examp += `
-            <div class="ex">${item}</div>
-        `
-    })
-    examples.innerHTML += examp;
-    examples.removeChild(examples.childNodes[1])
+    if(exmps.length <= 0){
+        examples.innerHTML = ``
+    }else{
+        examples.innerHTML = ``;
+        examples.innerHTML += `<div class="ex-head">Examples</div>`
+        let examp;
+        
+        exmps.forEach( (item) => {
+            examp += `
+                <div class="ex">${item}</div>
+            `
+        })
+        examples.innerHTML += examp;
+        examples.removeChild(examples.childNodes[1])
+    }
 }
 
 audioIcon.addEventListener("click", () => {
-    audioTag.currentTime = 0;
-    audioTag.play()
+    let audioCheck = (audioTag.attributes[0].nodeValue);
+    if(audioCheck === "" || audioCheck === undefined){
+        return
+    }else{
+        audioTag.currentTime = 0;
+        audioTag.play()
+    }
+    
 })
